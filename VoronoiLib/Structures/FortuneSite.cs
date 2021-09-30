@@ -4,19 +4,22 @@ namespace VoronoiLib.Structures
 {
     public class FortuneSite
     {
-        public double X { get; }
-        public double Y { get; }
+        public double X { get; set; }
+        public double Y { get; set; }
 
         public List<VEdge> Cell { get; private set; }
 
         public List<FortuneSite> Neighbors { get; private set; }
 
-        public FortuneSite(double x, double y)
+        public FortuneSite()
+        {
+            Cell = new List<VEdge>();
+            Neighbors = new List<FortuneSite>();
+        }
+        public FortuneSite(double x, double y):this()
         {
             X = x;
             Y = y;
-            Cell = new List<VEdge>();
-            Neighbors = new List<FortuneSite>();
         }
     }
 }

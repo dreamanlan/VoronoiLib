@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26114.2
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiDemo", "VoronoiDemo\VoronoiDemo.csproj", "{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoronoiLib", "VoronoiLib\VoronoiLib.csproj", "{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiLib", "VoronoiLib\VoronoiLib.csproj", "{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiSpeedTest", "VoronoiSpeedTest\VoronoiSpeedTest.csproj", "{22DEC323-A292-4CA8-B75D-50B39BCFEDC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoronoiSpeedTest", "VoronoiSpeedTest\VoronoiSpeedTest.csproj", "{22DEC323-A292-4CA8-B75D-50B39BCFEDC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,17 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|Any CPU.Build.0 = Debug|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|x64.ActiveCfg = Debug|x64
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|x64.Build.0 = Debug|x64
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|x86.ActiveCfg = Debug|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Debug|x86.Build.0 = Debug|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Release|Any CPU.ActiveCfg = Release|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Release|x64.ActiveCfg = Release|x64
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Release|x64.Build.0 = Release|x64
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Release|x86.ActiveCfg = Release|x86
-		{5E78F722-2CBC-478A-8E06-DCC9FC84A8FC}.Release|x86.Build.0 = Release|x86
 		{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -57,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3A57F8D-C1CF-45E5-BD1A-3150417AC6FF}
 	EndGlobalSection
 EndGlobal
