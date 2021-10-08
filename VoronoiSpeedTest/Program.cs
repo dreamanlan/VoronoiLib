@@ -70,7 +70,7 @@ namespace VoronoiSpeedTest
             var points = new List<FortuneSite>();
             for (var i = 0; i < n; i++)
             {
-                points.Add(new FortuneSite(r.NextDouble() * WIDTH, r.NextDouble()* HEIGHT));
+                points.Add(FortuneSite.New(r.NextDouble() * WIDTH, r.NextDouble()* HEIGHT));
             }
 
             //uniq the points

@@ -6,5 +6,7 @@ namespace VoronoiLib.Structures
     {
         double X { get; }
         double Y { get; }
+
+        void Recycle();
     }
 }

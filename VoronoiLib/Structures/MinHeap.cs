@@ -5,18 +5,25 @@ namespace VoronoiLib.Structures
 {
     public class MinHeap<T> where T : IComparable<T>
     {
-        private readonly T[] items;
-        public int Capacity { get; }
+        public T[] Items { get; private set; }
+        public int Capacity { get; private set; }
         public int Count { get; private set; }
 
-        public MinHeap(int capacity)
+        public void Init(int capacity)
         {
             if (capacity < 2)
             {
                 capacity = 2;
             }
-            Capacity = capacity;
-            items = new T[Capacity];
+            if (Capacity < capacity) {
+                Capacity = capacity;
+                Items = new T[Capacity];
+            }
+            Count = 0;
+        }
+        public void Clear()
+        {
+            Array.Clear(Items, 0, Items.Length);
             Count = 0;
         }
 
@@ -24,7 +31,7 @@ namespace VoronoiLib.Structures
         {
             if (Count == Capacity)
                 return false;
-            items[Count] = obj;
+            Items[Count] = obj;
             Count++;
             PercolateUp(Count - 1);
             return true;
@@ -37,11 +44,11 @@ namespace VoronoiLib.Structures
             if (Count == 1)
             {
                 Count--;
-                return items[Count];
+                return Items[Count];
             }
 
-            var min = items[0];
-            items[0] = items[Count - 1];
+            var min = Items[0];
+            Items[0] = Items[Count - 1];
             Count--;
             PercolateDown(0);
             return min;
@@ -51,7 +58,7 @@ namespace VoronoiLib.Structures
         {
             if (Count == 0)
                 throw new InvalidOperationException("Min heap is empty");
-            return items[0];
+            return Items[0];
         }
 
         //TODO: stop using the remove on the heap as it goes o(N^2)
@@ -61,7 +68,7 @@ namespace VoronoiLib.Structures
             int index = -1;
             for (var i = 0; i < Count; i++)
             {
-                if (items[i].Equals(item))
+                if (Items[i].Equals(item))
                 {
                     index = i;
                     break;
@@ -118,14 +125,14 @@ namespace VoronoiLib.Structures
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private bool LeftLessThanRight(int left, int right)
         {
-            return items[left].CompareTo(items[right]) < 0;
+            return Items[left].CompareTo(Items[right]) < 0;
         }
 
         private void Swap(int left, int right)
         {
-            var temp = items[left];
-            items[left] = items[right];
-            items[right] = temp;
+            var temp = Items[left];
+            Items[left] = Items[right];
+            Items[right] = temp;
         }
     }
 }

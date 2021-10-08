@@ -15,10 +15,21 @@ namespace VoronoiLib.Structures
 
         internal bool Red { get; set; }
 
-        internal RBTreeNode ()
+        public void Recycle()
         {
-            
+            Data = default(T);
+            Left = null;
+            Right = null;
+            Parent = null;
+            Previous = null;
+            Next = null;
+            s_Pool.Recycle(this);
         }
+        public static RBTreeNode<T> New()
+        {
+            return s_Pool.Alloc();
+        }
+        private static SimpleObjectPool<RBTreeNode<T>> s_Pool = new SimpleObjectPool<RBTreeNode<T>>();
     }
 
     public class RBTree<T>
@@ -27,7 +38,8 @@ namespace VoronoiLib.Structures
 
         public RBTreeNode<T> InsertSuccessor(RBTreeNode<T> node, T successorData)
         {
-            var successor = new RBTreeNode<T> {Data = successorData};
+            var successor = RBTreeNode<T>.New();
+            successor.Data = successorData;
 
             RBTreeNode<T> parent;
 
@@ -136,6 +148,11 @@ namespace VoronoiLib.Structures
 
         //TODO: Clean this up
         public void RemoveNode(RBTreeNode<T> node)
+        {
+            RemoveNodeImpl(node);
+            node.Recycle();
+        }
+        private void RemoveNodeImpl(RBTreeNode<T> node)
         {
             //fix up linked list structure
             if (node.Next != null)
@@ -291,7 +308,6 @@ namespace VoronoiLib.Structures
 
             if (node != null)
                 node.Red = false;
-
         }
 
         public static RBTreeNode<T> GetFirst(RBTreeNode<T> node)
