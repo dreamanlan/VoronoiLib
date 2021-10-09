@@ -194,10 +194,10 @@ namespace VoronoiLib.Structures
                 newEdge.Neighbor = infEdge;
                 edges.AddFirst(newEdge);
 
+                newSection.Data.Edge = newEdge;
+
                 leftSection.Data.Site.Neighbors.Add(newSection.Data.Site);
                 newSection.Data.Site.Neighbors.Add(leftSection.Data.Site);
-
-                newSection.Data.Edge = newEdge;
                 
                 //cant check circles since they are colinear
             }

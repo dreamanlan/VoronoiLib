@@ -6,7 +6,6 @@ namespace VoronoiLib.Structures
     {
         public double X { get; private set; }
         public double Y { get; private set; }
-        public List<VEdge> Cell { get; private set; }
         public List<FortuneSite> Neighbors { get; private set; }
 
         public long Tag { get; set; }
@@ -14,13 +13,11 @@ namespace VoronoiLib.Structures
 
         public void Recycle()
         {
-            Cell.Clear();
             Neighbors.Clear();
             s_Pool.Recycle(this);
         }
         public FortuneSite()
         {
-            Cell = new List<VEdge>();
             Neighbors = new List<FortuneSite>();
         }
         private void Init(double x, double y)
